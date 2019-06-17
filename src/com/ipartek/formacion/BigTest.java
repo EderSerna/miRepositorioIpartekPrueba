@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class BigTest {
 	public static void main(String[] args) {
 	   
-	    	//Mira que numeros mas...Grandes 7u7
+	    	//Mira que numeros mas... Grandes 7u7
 	        // Initialize result 
 	        BigInteger f = new BigInteger("1"); // Or BigInteger.ONE 
 	  
