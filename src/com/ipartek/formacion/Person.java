@@ -139,7 +139,7 @@ public class Person {
 	}
 
 	public void setSexo(char sexo) throws PersonException {
-		if(sexo!='h' ||sexo!='H' ||sexo!='m' ||sexo!='M' ||sexo!='i' ||sexo!='I') {
+		if(sexo!='h' && sexo!='H' && sexo!='m' && sexo!='M' && sexo!='i' && sexo!='I') {
 			throw new PersonException(PersonException.ERROR_SEXO);
 		}else
 			this.sexo = sexo;

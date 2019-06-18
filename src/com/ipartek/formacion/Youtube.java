@@ -20,7 +20,7 @@ public class Youtube {
 	private static final Integer LONG_MAX_TIT = 150;
 	private static final String COD_DEF = "x7bIbVlIqEc";
 	private static final String TIT_DEF = "Metallica - Nothing else matter lyrics";
-	private static final Integer REP_DEF = 60495713;
+	public static final Integer REP_DEF = 60495713;
 
 	private String titulo; // minimo 2 letras max 150
 	private String cod; // Unicamente 11
@@ -35,13 +35,14 @@ public class Youtube {
 	public Youtube(String titulo, String cod) {
 
 		if (titulo != null && titulo.length() >= LONG_MIN_TIT && titulo.length() <= LONG_MAX_TIT && cod != null
-				&& cod.length() != LONG_COD) {
+				&& cod.length() == LONG_COD) {
 			this.titulo = titulo;
 			this.cod = cod;
-
+			this.repro = REP_DEF;
 		} else {
 			this.titulo = TIT_DEF;
 			this.cod = COD_DEF;
+			this.repro = REP_DEF;
 			Hilo h1=new Hilo();
 			h1.start();
 		}
@@ -65,7 +66,7 @@ public class Youtube {
 	}
 
 	public void setCod(String cod) throws Exception {
-		if (cod != null && cod.length() != LONG_COD)
+		if (cod != null && cod.length() == LONG_COD)
 			this.cod = cod;
 		else
 			throw new Exception("Longitud del codigo no es 11");
@@ -84,7 +85,7 @@ public class Youtube {
 	public void abrirVideo() {
 		URL url = null;
 		try {
-			url = new URL(CADENA_VIDEO + cod);
+			url = new URL(this.CADENA_VIDEO + this.cod);
 			try {
 				Desktop.getDesktop().browse(url.toURI());
 			} catch (IOException e) {
@@ -95,11 +96,6 @@ public class Youtube {
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
-	}
-	public void Mensaje() {
-		JOptionPane.showMessageDialog(
-				   null,
-				   "Datos introducidos incorrectamente, se usaron los datos por defecto");
 	}
 
 }

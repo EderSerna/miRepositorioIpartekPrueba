@@ -1,12 +1,13 @@
 package com.ipartek.formacion;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import com.ipartek.formacion.excepciones.PersonException;
 
 public class Gente {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PersonException {
 		/*String a=" ";
 		String s="asdf";
 		Employee[] ricos= new Employee[3];
@@ -20,7 +21,6 @@ public class Gente {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		
 		/*for (int i = 0; i < ricos.length; i++) {
 			System.out.println(ricos[i].toString());
 		}
@@ -40,7 +40,42 @@ public class Gente {
 		
 		
 		ArrayList<Person> personas=new ArrayList<Person>();
+		String nombre;
+		int edad, cont;
+		char sexo;
+		Person x;
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("Introduce el numero de personas que vas a crear");
+		cont=Integer.parseInt(sc.nextLine());
+		sc.nextLine();
+		while(cont !=0) {
+
+			for (int i = 0; i < cont; i++) {
+				System.out.println("Persona "+(i+1));
+				System.out.println("Introduce nombre");
+				nombre = sc.nextLine();
+				sc.nextLine();
+				System.out.println("Introduce edad");
+				edad=Integer.parseInt(sc.nextLine());
+				sc.nextLine();
+				System.out.println("Introduce sexo");
+				sexo=sc.nextLine().charAt(0);
+				sc.nextLine();
+				x=new Person();
+				x.setNombre(nombre);
+				x.setEdad(edad);
+				x.setSexo(sexo);
+				personas.add(x);
+			}
+			
+			System.out.println("Introduce el numero de personas que vas a crear");
+			cont=sc.nextInt();
+		}
+		sc.close();
+		for (int i = 0; i < personas.size(); i++) {
+			System.out.println(personas.get(i));
+		}
 		
 	}
 
