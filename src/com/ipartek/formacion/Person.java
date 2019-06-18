@@ -31,6 +31,16 @@ public class Person {
 		this.sexo=SEXO_DEF;
 		this.nif=NIF_DEF;
 	}
+	
+	public Person(final Person p) {
+		nombre=p.nombre;
+		edad=p.edad;
+		altura=p.altura;
+		peso=p.peso;
+		ojos=p.ojos;
+		sexo=p.sexo;
+		nif=p.nif;
+	}
 	public Person(String nif) {
 		this.nif=nif;
 		this.nombre=NOMBRE_DEF;

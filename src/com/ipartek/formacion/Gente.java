@@ -6,46 +6,85 @@ import java.util.Scanner;
 import com.ipartek.formacion.excepciones.PersonException;
 
 public class Gente {
-
+	static ArrayList<Integer> contVolun=new ArrayList<Integer>();
+	static ArrayList<Person> personas=new ArrayList<Person>();
+	static String nombre;
+	static int opcion;
+	static int edad;
+	static int cont;
+	static char sexo;
+	static Person x;
+	static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) throws PersonException {
-		/*String a=" ";
-		String s="asdf";
-		Employee[] ricos= new Employee[3];
-		ricos[0]= new Employee("Jeff Bezos",55,'h',150000);
-		ricos[1]= new Employee("Bill Gates",63,'h',136000);
-		ricos[2]= new Employee("Warren Buffett",88,'h',87000);*/
-		/*Person p1=new Person();
-		try {
-			p1.generarDni(79181049);
-		} catch (PersonException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		/*for (int i = 0; i < ricos.length; i++) {
-			System.out.println(ricos[i].toString());
-		}
-		*/
-		/*for (int i = 0; i < ricos.length; i++) {
-			String[] datos=ricos[i].toString().split(a);
-			System.out.print((i+1)+" ");
-			for (int j = 0; j < datos.length; j++) {
-				if(j!=3 && j!=2)
-					System.out.print(datos[j]+" ");
+
+		do {
+		mensaje();
+		opcion=Integer.parseInt(sc.nextLine());
+		switch (opcion) {
+			case 1:
+				listar();
+				break;
+			case 2:
+				crearPersona();
+				break;
+			case 3:
+				eliminarPersona();
+				break;
+			case 4:
+				buscarVoluntario();
+				break;
+			default:
+				System.out.println("Adios!");
+				break;
 			}
-			System.out.println();
-		}*/
+		}while(opcion!=0);
+
+
+		sc.close();
+		for (int i = 0; i < personas.size(); i++) {
+			System.out.println(personas.get(i));
+		}
 		
-		//System.out.println(p1.getNif());
+	}
+	
+	private static void buscarVoluntario() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void eliminarPersona() {
+		System.out.println("Introduce el nombre de la persona que vayas a eliminar");
+		String nombre=sc.nextLine();
+		Person elim;
+		for (int i = 0; i < personas.size(); i++) {
+			elim=new Person(personas.get(i));
+			if(nombre.equals(elim.getNombre())) {
+				personas.remove(i);
+				contVolun.remove(i);
+			}
+		}
+		
+	}
+
+	private static void listar() {
 		
 		
+	}
+
+	public static void mensaje() {
+		System.out.println("==============MENU==============");
+		System.out.println("================================\n");
+		System.out.println("Opcion 1 - Listar Personas");
+		System.out.println("Opcion 2 - Crear  Persona");
+		System.out.println("Opcion 3 - Borrar Persona");
+		System.out.println("Opcion 4 - Buscar Voluntario");
+		System.out.println("Opcion 0 - S A L I R");
 		
-		ArrayList<Person> personas=new ArrayList<Person>();
-		String nombre;
-		int edad, cont;
-		char sexo;
-		Person x;
-		Scanner sc = new Scanner(System.in);
-		
+		System.out.print("\nIntroduce una opcion:");
+	}
+	
+	public static void crearPersona() throws PersonException {
 		System.out.println("Introduce el numero de personas que vas a crear");
 		cont=Integer.parseInt(sc.nextLine());
 		sc.nextLine();
@@ -67,16 +106,12 @@ public class Gente {
 				x.setEdad(edad);
 				x.setSexo(sexo);
 				personas.add(x);
+				contVolun.add(0);
 			}
 			
 			System.out.println("Introduce el numero de personas que vas a crear");
 			cont=sc.nextInt();
 		}
-		sc.close();
-		for (int i = 0; i < personas.size(); i++) {
-			System.out.println(personas.get(i));
-		}
-		
 	}
 
 }
