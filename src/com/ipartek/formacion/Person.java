@@ -41,9 +41,19 @@ public class Person {
 		sexo=p.sexo;
 		nif=p.nif;
 	}
-	public Person(String nif) {
+	/*public Person(String nif) {
 		this.nif=nif;
 		this.nombre=NOMBRE_DEF;
+		this.edad=EDAD_DEF;
+		this.altura=ALTURA_DEF;
+		this.peso=PESO_DEF;
+		this.ojos=OJOS_DEF;
+		this.sexo=SEXO_DEF;
+	}*/
+	
+	public Person(String nombre) {
+		this.nif=NIF_DEF;
+		this.nombre=nombre;
 		this.edad=EDAD_DEF;
 		this.altura=ALTURA_DEF;
 		this.peso=PESO_DEF;

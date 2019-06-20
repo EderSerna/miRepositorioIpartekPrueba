@@ -100,4 +100,5 @@ public class Perro {
 	public void setVacunado(boolean vacunado) {
 		this.vacunado = vacunado;
 	}
+
 }
