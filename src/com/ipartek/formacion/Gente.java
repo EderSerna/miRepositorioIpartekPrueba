@@ -178,21 +178,6 @@ public class Gente {
 			personas.add(new Person("Jon A"));
 			personas.add(new Person("Jose Luis"));
 
-//			copiaPer.add(new Person("Ander"));
-//			copiaPer.add(new Person("Mounir"));
-//			copiaPer.add(new Person("Andoni"));
-//			copiaPer.add(new Person("Asier"));
-//			copiaPer.add(new Person("Jon C"));
-//			copiaPer.add(new Person("Arkaitz"));
-//			copiaPer.add(new Person("Aritz"));
-//			copiaPer.add(new Person("Manuel"));
-//			copiaPer.add(new Person("Eder I"));
-//			copiaPer.add(new Person("Eder S"));
-//			copiaPer.add(new Person("Gaizka"));
-//			copiaPer.add(new Person("Borja"));
-//			copiaPer.add(new Person("Verónica"));
-//			copiaPer.add(new Person("Jon A"));
-//			personas.add(new Person("Jose Luis"));
 			copiaPer.addAll(personas);
 			for (int i = 0; i < personas.size(); i++) {
 				contVolun.add(0);
