@@ -159,7 +159,7 @@ public class Gente {
 
 		/*
 		 * "Ander", "Mounir", "Andoni", "Asier", "Jon C", "Arkaitz", "Aritz", "Manuel",
-		 * "Eder I", "Eder S", "Gaizka", "Borja", "Verónica", "Jon A", "José Luis"
+		 * "Eder I", "Eder S", "Gaizka", "Borja", "Verï¿½nica", "Jon A", "Josï¿½ Luis"
 		 */
 		if (nombres.isEmpty()) {
 			personas.add(new Person("Ander"));
@@ -174,7 +174,7 @@ public class Gente {
 			personas.add(new Person("Eder S"));
 			personas.add(new Person("Gaizka"));
 			personas.add(new Person("Borja"));
-			personas.add(new Person("Verónica"));
+			personas.add(new Person("Verï¿½nica"));
 			personas.add(new Person("Jon A"));
 			personas.add(new Person("Jose Luis"));
 
@@ -203,18 +203,18 @@ public class Gente {
 			if (b) {
 				if (i == n)
 					System.out
-							.println("Afortunado!!! " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
+							.println("Afortunado!!! " + personas.get(i).getNombre() + " Nï¿½ Veces: " + contVolun.get(i));
 				else
-					System.out.println("Nombre: " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
+					System.out.println("Nombre: " + personas.get(i).getNombre() + " Nï¿½ Veces: " + contVolun.get(i));
 
 			} else
-				System.out.println("Nombre: " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
+				System.out.println("Nombre: " + personas.get(i).getNombre() + " Nï¿½ Veces: " + contVolun.get(i));
 		}
 		espera(500);
 	}
 
 	/**
-	 * Le dices el numero de personas que vas a crear y añades el nombre de cada una
+	 * Le dices el numero de personas que vas a crear y aï¿½ades el nombre de cada una
 	 * de ellas
 	 * 
 	 * @throws PersonException

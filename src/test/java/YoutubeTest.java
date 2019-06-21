@@ -1,10 +1,12 @@
-package com.ipartek.formacion;
+
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.ipartek.formacion.Youtube;
 
 public class YoutubeTest {
 	Youtube y1;

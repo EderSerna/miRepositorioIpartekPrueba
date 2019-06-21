@@ -1,8 +1,10 @@
-package com.ipartek.formacion;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.ipartek.formacion.OrdenarArray;
 
 public class OrdenarArrayTest {
 

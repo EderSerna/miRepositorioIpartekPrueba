@@ -1,8 +1,10 @@
-package com.ipartek.formacion.utilidades;
+
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.ipartek.formacion.utilidades.Calculadora;
 
 public class CalculadoraTest {
 	Double a=3d, b=5d;
