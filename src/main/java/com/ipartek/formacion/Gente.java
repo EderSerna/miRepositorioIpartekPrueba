@@ -12,7 +12,8 @@ import com.ipartek.formacion.excepciones.PersonException;
 
 public class Gente {
 	static ArrayList<Person> copiaPer = new ArrayList<Person>();
-	// static ArrayList<Integer> copiaCont = new ArrayList<Integer>();
+	static ArrayList<Integer> copiaCont = new ArrayList<Integer>();
+	static ArrayList<Person> ordPer = new ArrayList<Person>();
 	static ArrayList<Integer> contVolun = new ArrayList<Integer>();
 	static ArrayList<Person> personas = new ArrayList<Person>();
 	static ArrayList<String> nombres = new ArrayList<String>();
@@ -44,6 +45,9 @@ public class Gente {
 			case 4:
 				buscarVoluntario();
 				break;
+			case 5:
+				ordenarArray();
+				break;
 			default:
 				System.out.println("Adios!");
 				break;
@@ -53,7 +57,10 @@ public class Gente {
 		sc.close();
 		guardarDatos();
 	}
-
+	
+	/**
+	 * carga los datos que hay guardados en un fichero, en caso de no haber simplemente no hace nada
+	 */
 	private static void cargarDatos() {
 		File archivoNombres = null, archivoCont = null;
 		FileReader fr = null;
@@ -110,7 +117,10 @@ public class Gente {
 		}
 
 	}
-
+	
+	/**
+	 * Guardado de datos en fichero de texto, para que no se pierdan y eso
+	 */
 	private static void guardarDatos() {
 		FileWriter ficheroNombres = null, ficheroCont = null;
 		PrintWriter pw = null;
@@ -153,7 +163,8 @@ public class Gente {
 	}
 
 	/**
-	 * Funcion que inicializa el array con los valores por defecto
+	 * Funcion que inicializa el array con los valores por defecto en case de estar vacio
+	 * si no, llena la lista con los nombre en el array nombres
 	 */
 	public static void inicializarArray() {
 
@@ -174,7 +185,7 @@ public class Gente {
 			personas.add(new Person("Eder S"));
 			personas.add(new Person("Gaizka"));
 			personas.add(new Person("Borja"));
-			personas.add(new Person("Ver�nica"));
+			personas.add(new Person("Verónica"));
 			personas.add(new Person("Jon A"));
 			personas.add(new Person("Jose Luis"));
 
@@ -196,28 +207,28 @@ public class Gente {
 	 * Muestra los alumnos del array junto con las veces que han sido voluntarios
 	 * desde que la aplicacion de lanza
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException me obliga a ponerlo pero no salta
 	 */
 	private static void listar() throws InterruptedException {
 		for (int i = 0; i < personas.size(); i++) {
 			if (b) {
 				if (i == n)
 					System.out
-							.println("Afortunado!!! " + personas.get(i).getNombre() + " N� Veces: " + contVolun.get(i));
+							.println("Afortunado!!! " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
 				else
-					System.out.println("Nombre: " + personas.get(i).getNombre() + " N� Veces: " + contVolun.get(i));
+					System.out.println("Nombre: " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
 
 			} else
-				System.out.println("Nombre: " + personas.get(i).getNombre() + " N� Veces: " + contVolun.get(i));
+				System.out.println("Nombre: " + personas.get(i).getNombre() + " Nº Veces: " + contVolun.get(i));
 		}
-		espera(500);
+		espera(1);
 	}
 
 	/**
 	 * Le dices el numero de personas que vas a crear y a�ades el nombre de cada una
 	 * de ellas
 	 * 
-	 * @throws PersonException
+	 * @throws PersonException salta si introduces algo que no debes en persona
 	 */
 	public static void crearPersona() throws PersonException {
 		System.out.println("Introduce el numero de personas que vas a crear");
@@ -272,7 +283,7 @@ public class Gente {
 	/**
 	 * Escoge aleatoriamente una persona
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException En realidad nunca salta
 	 */
 	private static void buscarVoluntario() throws InterruptedException {
 		// copiaCont=contVolun;
@@ -300,7 +311,35 @@ public class Gente {
 		}
 
 	}
-
+	
+	public static void ordenarArray() {
+		copiaCont.clear();
+		ordPer.clear();
+		Integer x=0;
+		Person p;
+		copiaCont.addAll(contVolun);
+		ordPer.addAll(personas);
+		for (int i = 0; i < copiaCont.size(); i++) {
+			for (int j = 0; j < copiaCont.size(); j++) {
+				if (copiaCont.get(j) < copiaCont.get(i)) {
+					x = copiaCont.get(i);
+					p=ordPer.get(i);
+					copiaCont.set(i,copiaCont.get(j));
+					copiaCont.set(j,x);
+					ordPer.set(i,ordPer.get(j));
+					ordPer.set(j,p);
+				}
+			}
+		}
+		
+		for (int i = 0; i < copiaCont.size(); i++) {
+			System.out.println(ordPer.get(i).getNombre()+"          "+copiaCont.get(i));
+		}
+	}
+	
+	/**
+	 * Simplemente el menu en una funcion
+	 */
 	public static void mensaje() {
 		System.out.println("==============MENU==============");
 		System.out.println("================================\n");
@@ -308,13 +347,19 @@ public class Gente {
 		System.out.println("Opcion 2 - Crear  Persona");
 		System.out.println("Opcion 3 - Borrar Persona");
 		System.out.println("Opcion 4 - Buscar Voluntario");
+		System.out.println("Opcion 5 - Ranking");
 		System.out.println("Opcion 0 - S A L I R");
 
 		System.out.print("\nIntroduce una opcion:");
 	}
-
+	
+	/**
+	 * Tiempo de espera para pura estetica
+	 * @param n le pasa los segundos que quieres que espere
+	 * @throws InterruptedException Manda ponerlo pero no salta
+	 */
 	public static void espera(int n) throws InterruptedException {
-		Thread.sleep(n);
+		Thread.sleep(n*1000);
 	}
 
 }

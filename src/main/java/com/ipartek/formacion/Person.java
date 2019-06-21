@@ -20,6 +20,15 @@ public class Person {
 	private double peso;
 	private String ojos;
 	private char sexo;
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String nif;
 	
 	public Person() {
